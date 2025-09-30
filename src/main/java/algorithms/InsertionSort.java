@@ -1,4 +1,4 @@
-package sorts;
+package algorithms;
 
 import metrics.PerformanceTracker;
 

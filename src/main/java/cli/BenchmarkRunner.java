@@ -1,5 +1,7 @@
+package cli;
+
 import metrics.PerformanceTracker;
-import sorts.InsertionSort;
+import algorithms.InsertionSort;
 import java.util.Random;
 
 public class BenchmarkRunner {
@@ -15,7 +17,7 @@ public class BenchmarkRunner {
                 InsertionSort.sort(arr, tracker);
                 break;
             case "selection":
-                // SelectionSort.sort(arr, tracker);  // plug in later
+                // SelectionSort.sort(arr, tracker); // plug in later
                 System.out.println("Selection sort not yet implemented");
                 break;
             default:
@@ -40,8 +42,8 @@ public class BenchmarkRunner {
      * Runs benchmarks for insertion sort on random data
      */
     public static void runComprehensiveBenchmark() {
-        String[] algorithms = {"insertion"};
-        int[] sizes = {100, 500, 1000, 2000, 5000};
+        String[] algorithms = { "insertion" };
+        int[] sizes = { 100, 500, 1000, 2000, 5000 };
 
         System.out.println("Starting Benchmark (Random Arrays)...\n");
 
@@ -87,9 +89,17 @@ public class BenchmarkRunner {
             this.tracker = tracker;
         }
 
-        public String getAlgorithm() { return algorithm; }
-        public int getSize() { return size; }
-        public PerformanceTracker getTracker() { return tracker; }
+        public String getAlgorithm() {
+            return algorithm;
+        }
+
+        public int getSize() {
+            return size;
+        }
+
+        public PerformanceTracker getTracker() {
+            return tracker;
+        }
 
         @Override
         public String toString() {
@@ -100,8 +110,7 @@ public class BenchmarkRunner {
                     tracker.getSwaps(),
                     tracker.getArrayAccesses(),
                     tracker.getMemoryAllocations(),
-                    tracker.getExecutionTimeMillis()
-            );
+                    tracker.getExecutionTimeMillis());
         }
     }
 }
