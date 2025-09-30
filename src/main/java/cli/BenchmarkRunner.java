@@ -16,16 +16,15 @@ public class BenchmarkRunner {
             case "selection":
                 SelectionSort.sort(arr, tracker);
                 break;
-            // case "insertion":
-            //     InsertionSort.sort(arr, tracker);
-            //     break;
             default:
                 System.out.println("Unknown algorithm: " + algorithm);
                 return null;
         }
 
-
         tracker.stop();
+
+        tracker.exportToCSV("benchmark_results.csv", algorithm + "-" + inputType, size);
+
         return new BenchmarkResult(algorithm, size, inputType, tracker);
     }
 
@@ -68,11 +67,6 @@ public class BenchmarkRunner {
             this.inputType = inputType;
             this.tracker = tracker;
         }
-
-        public String getAlgorithm() { return algorithm; }
-        public int getSize() { return size; }
-        public String getInputType() { return inputType; }
-        public PerformanceTracker getTracker() { return tracker; }
 
         @Override
         public String toString() {

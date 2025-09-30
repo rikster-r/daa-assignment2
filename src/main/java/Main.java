@@ -19,6 +19,7 @@ public class Main {
         String inputType = args.length > 2 ? args[2].toLowerCase() : "random";
 
         BenchmarkRunner.BenchmarkResult result = BenchmarkRunner.runBenchmark(algorithm, size, inputType);
+
         if (result != null) {
             System.out.println(result);
         }

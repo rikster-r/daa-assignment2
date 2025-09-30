@@ -4,59 +4,35 @@ import metrics.PerformanceTracker;
 
 public class SelectionSort {
 
+    public static void sort(int[] arr) {
+        PerformanceTracker tracker = new PerformanceTracker();
+        sort(arr, tracker);
+    }
+
     public static void sort(int[] arr, PerformanceTracker tracker) {
-        if (arr == null) {
-            throw new IllegalArgumentException("Array cannot be null");
-        }
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            tracker.incrementArrayAccesses(1);
+            int minIdx = i;
             for (int j = i + 1; j < n; j++) {
                 tracker.incrementComparisons();
-                tracker.incrementArrayAccesses(1);
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+                tracker.incrementArrayAccesses(2);
+                if (arr[j] < arr[minIdx]) {
+                    minIdx = j;
                 }
             }
-            if (minIndex != i) {
-                int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
+            if (minIdx != i) {
+                int tmp = arr[minIdx];
+                arr[minIdx] = arr[i];
+                arr[i] = tmp;
                 tracker.incrementSwaps();
                 tracker.incrementArrayAccesses(4);
             }
         }
     }
 
-    public static void sort(int[] arr) {
-        if (arr == null) {
-            throw new IllegalArgumentException("Array cannot be null");
-        }
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
-                }
-            }
-            if (minIndex != i) {
-                int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
-            }
-        }
-    }
-
     public static boolean isSorted(int[] arr) {
-        if (arr == null || arr.length <= 1) {
-            return true;
-        }
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[i - 1]) {
-                return false;
-            }
+            if (arr[i - 1] > arr[i]) return false;
         }
         return true;
     }
