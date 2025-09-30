@@ -1,8 +1,9 @@
+import cli.*;
 public class Main {
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("Usage: java Main <algorithm> <size> [inputType]");
-            System.out.println("Algorithms: insertion, selection");
+            System.out.println("Algorithms: selection");
             System.out.println("Input types: random (default), sorted, reversed, nearly-sorted");
             return;
         }

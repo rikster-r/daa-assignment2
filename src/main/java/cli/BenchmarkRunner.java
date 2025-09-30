@@ -1,4 +1,7 @@
+package cli;
+
 import metrics.PerformanceTracker;
+import algorithms.SelectionSort;
 import java.util.Random;
 
 public class BenchmarkRunner {
@@ -10,16 +13,17 @@ public class BenchmarkRunner {
         tracker.start();
 
         switch (algorithm.toLowerCase()) {
-            case "insertion":
-                // InsertionSort.sort(arr, tracker);  // plug in later
-                break;
             case "selection":
-                // SelectionSort.sort(arr, tracker);  // plug in later
+                SelectionSort.sort(arr, tracker);
                 break;
+            // case "insertion":
+            //     InsertionSort.sort(arr, tracker);
+            //     break;
             default:
                 System.out.println("Unknown algorithm: " + algorithm);
                 return null;
         }
+
 
         tracker.stop();
         return new BenchmarkResult(algorithm, size, inputType, tracker);
