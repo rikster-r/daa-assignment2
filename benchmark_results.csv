@@ -1,0 +1,13 @@
+Algorithm,InputSize,Comparisons,Swaps,ArrayAccesses,MemoryAllocations,ExecutionTime(ms)
+selection-random,100,4950,95,10280,0,1
+selection-sorted,100,4950,0,9900,0,0
+selection-reversed,100,4950,50,10100,0,0
+selection-nearly-sorted,100,4950,10,9940,0,0
+selection-random,1000,499500,992,1002968,0,7
+selection-sorted,1000,499500,0,999000,0,3
+selection-reversed,1000,499500,500,1001000,0,0
+selection-nearly-sorted,1000,499500,100,999400,0,1
+selection-random,5000,12497500,4989,25014956,0,10
+selection-sorted,5000,12497500,0,24995000,0,9
+selection-reversed,5000,12497500,2500,25005000,0,10
+selection-nearly-sorted,5000,12497500,500,24997000,0,9

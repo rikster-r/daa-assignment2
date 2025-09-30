@@ -1,9 +1,9 @@
+import cli.*;
 public class Main {
     public static void main(String[] args) {
         if (args.length < 2) {
-            System.out.println("Usage: java Main <algorithm> <size> [inputType]");
+            System.out.println("Usage: java Main <algorithm> <size>");
             System.out.println("Algorithms: insertion, selection");
-            System.out.println("Input types: random (default), sorted, reversed, nearly-sorted");
             return;
         }
 
@@ -15,9 +15,8 @@ public class Main {
             System.out.println("Error: size must be an integer.");
             return;
         }
-        String inputType = args.length > 2 ? args[2].toLowerCase() : "random";
 
-        BenchmarkRunner.BenchmarkResult result = BenchmarkRunner.runBenchmark(algorithm, size, inputType);
+        BenchmarkRunner.BenchmarkResult result = BenchmarkRunner.runBenchmark(algorithm, size);
         if (result != null) {
             System.out.println(result);
         }
